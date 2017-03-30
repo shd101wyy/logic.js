@@ -1,0 +1,22 @@
+{
+  "name": "logic.js",
+  "version": "0.0.1",
+  "description": "JavaScript implementation of modified version of miniKanren",
+  "main": "lib/logic.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shd101wyy/logic.js.git"
+  },
+  "keywords": [
+    "logic"
+  ],
+  "author": "shd101wyy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shd101wyy/logic.js/issues"
+  },
+  "homepage": "https://github.com/shd101wyy/logic.js#readme"
+}
