@@ -1,4 +1,4 @@
-# Relational Programming using logic.js
+# Relational (Logic) Programming using logic.js
 `logic.js` is a JavaScript implementation of modified version of miniKanren.
 
 `logic.js` introduces many useful functions (operators), and they can be loaded in `nodejs` like below:
@@ -30,13 +30,21 @@ The anonymous function can be written as `ES6 arrow function` like below.
 // #function
 ```
 
-Here comes the `run` function, which has 3 parameters.    
+Here comes the `run` function, which has 3 parameters.   
+```javascript
+run(
+  "The maximum length of resultant list",
+  "List of logic variables that you want to query",
+  "Goal"
+)
+```
+
 ```javascript
 const q = lvar('q') // q
 run(1, [q], (x=lvar(), y=lvar(), z=lvar())=>
     and(eq(x, y),
         eq(z, 3)))
-// [{q: q}]
+// [{q=> q}]
 ```
 
 We can get back more interesting values by unifying the query variable with another term.
@@ -45,7 +53,7 @@ const q = lvar('q')
 run(1, [q], (x=lvar(), y=lvar())=>
   and(eq(q, 3),
       eq(x, y)))
-// [{y: 3}]
+// [{y=>3}]
 ```
 
 ```javascript
@@ -54,7 +62,7 @@ run(1, [q], (x=lvar(), z=lvar())=>
   and(eq(x, z),
       eq(3, z),
       eq(q, x)))
-// [{q: 3}]
+// [{q=>3}]
 ```
 
 ```javascript
@@ -63,7 +71,7 @@ run(1, [y], and(
   (x=lvar(), y=lvar())=> and(eq(4, x), eq(x, y))
   eq(3, y)
 ))
-// [{y: 3}]
+// [{y=>3}]
 ```
 In the code above, `y` introduced in anonymous function is different from the `y` defined at start.  
 
@@ -86,7 +94,7 @@ run(2, [x], or(
   eq(x, 1),
   eq(x, 2)
 ))
-// [{x: 1}, {x: 2}]
+// [{x=>1}, {x=>2}]
 ```   
 
 I extend core miniKanren with the following operators.  
