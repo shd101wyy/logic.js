@@ -1,4 +1,4 @@
-const {lvar, run, eq, and, or, membero, numbero, stringo} = require ('../lib/logic.js')
+const {lvar, run, eq, and, or, membero, numbero, stringo, add} = require ('../lib/logic.js')
 
 const x = lvar('x')
 const y = lvar('y')
@@ -14,6 +14,13 @@ console.log(
 )
 */
 
+// this is wrong
+/*
 console.log(
   run([x], and(stringo(x), eq(x, 'abc')))
+)
+*/
+
+console.log(
+  run([x], and(eq(y, 4), add(y, x, 2)))
 )
