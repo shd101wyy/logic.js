@@ -717,7 +717,7 @@ eqy("{x: y, y: 2}<br>eq(y, 2)<br>{x: y, y: 2}")
 Results: [{x: 2}]
 
 <!-- slide vertical:true -->
-## I extend miniKanren to support more operators.
+## I extend the Core miniKanren to support more operators.
 
 <!-- slide vertical:true -->  
 # succeed  
@@ -753,7 +753,7 @@ run(1, [x], and(stringo(x), eq(x, 'haha'))) // []
 ```
 
 <!-- slide vertical:true -->
-# conso, firsto, resto, emptyo
+# conso, firsto, resto, emptyo, membero
 ```javascript
 cons(1, [2, 3]) // [1, 2, 3]
 first([1, 2, 3]) // 1
@@ -763,6 +763,8 @@ run(1, [x, y], conso(x, y, [1, 2, 3])) // [ { x: 1, y: [ 2, 3 ] } ]
 run(1, [x], firsto(x, [1, 2])) // [{x: 1}]
 run(1, [x], resto(x, [1, 2]))  // [{x: [2]}]
 run(1, [x], emptyo(x))         // [{x: []}]
+
+run(1, [x], and(eq(x, 1), membero(x, [3, 2, 1]))) // [{x: 1}]
 ```
 <aside class="notes">
 The cons function takes two arguments and returns a new cons cell containing the two values. These values can be references to any kind of object.
@@ -788,6 +790,20 @@ function appendo(Xs, Ys, Zs) {
     )
   )
 }
+```
+
+<!-- slide vertical:true -->  
+# appendo example
+```javascript
+run([x, y], appendo(x, y, [1, 2, 3, 4, 5]))
+/*
+[ { x: [], y: [ 1, 2, 3, 4, 5 ] },
+  { x: [ 1 ], y: [ 2, 3, 4, 5 ] },
+  { x: [ 1, 2 ], y: [ 3, 4, 5 ] },
+  { x: [ 1, 2, 3 ], y: [ 4, 5 ] },
+  { x: [ 1, 2, 3, 4 ], y: [ 5 ] },
+  { x: [ 1, 2, 3, 4, 5 ], y: [] } ]
+ */
 ```
 
 <!-- slide vertical:true -->  

@@ -5,6 +5,8 @@ const y = lvar('y')
 
 // console.log(run(2, [x, y], or(and(eq(x, y), eq(x, 3)), eq(x, 2))))
 // console.log(run([x], membero(x, [1, 2])))
+// console.log(run(1, [x], and(eq(x, 1), membero(x, [3, 2, 1])))) // [{x: 1}]
+// console.log(run(1, [x], and(membero(x, [3, 2, 1]), eq(x, 1)))) // [{x: 1}]
 // console.log(run([x], and(eq(y, [1, 2, 3]), membero(x, y))))
 
 // the example below will cause infinite loop
@@ -34,7 +36,8 @@ const y = lvar('y')
 // console.log(run([x], and(eq(x, 2), lt(x, 1)))) // []
 // console.log(run(10, [x], anyo(or(eq(x, 1), eq(x, 2), eq(x, 3)))))
 // console.log(run([x], or(eq(x, 1), (x=lvar())=> eq(x, 2))))
-
+// console.log(run([x], and(gt(x, 1), eq(x, 2)))) // []
+// console.log(run([x], and(eq(x, 2), gt(x, 1)))) // [ { x: 2 } ] 
 /*
 function parent(x, y) {
   return or(
