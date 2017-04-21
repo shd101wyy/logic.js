@@ -22,8 +22,8 @@ const {lvar, run, and, or, eq} = require('logic_js') // or `logic` in browser
 
 const x = lvar('x') // define logic variable with id 'x'
 
-run(1, x, eq(x, 1)) // query 'x' => [{x: 1}]
-run(1, x, (y=lvar()=> and(
+run(1, [x], eq(x, 1)) // query 'x' => [{x: 1}]
+run(1, [x], (y=lvar()=> and(
   eq(y, 1),
   eq(x, y)
 ))) // => [{x: 1}]
@@ -37,8 +37,8 @@ const parent = facts(['Steve', 'Bob'],      // Steve is Bob's parent
                    ['Steve', 'Henry'],    // Steve is Henry's parent
                    ['Henry', 'Alice'])    // Henry is Alice's parent
 const x = lvar()
-run(1, x, parent(x, 'Alice'))      // who is Alice's parent => ['Henry']
-run(2, x, parent('Steve', x))      // who are Steve's children => ['Bob', 'Henry']
+run(1, [x], parent(x, 'Alice'))      // who is Alice's parent => ['Henry']
+run(2, [x], parent('Steve', x))      // who are Steve's children => ['Bob', 'Henry']
 
 // RULE
 const grandparent = (x, y)=> {
@@ -46,7 +46,7 @@ const grandparent = (x, y)=> {
   return and(parent(x, z), parent(z, y)) // x is z's parent and z is y's parent => x is y's parent
 }
 
-run(1, x, grandparent(x, 'Alice'))  // who is Alice's grandparent => ['Steve']
+run(1, [x], grandparent(x, 'Alice'))  // who is Alice's grandparent => ['Steve']
 ```
 
 ### Array manipulation
