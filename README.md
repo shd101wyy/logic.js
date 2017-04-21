@@ -93,6 +93,18 @@ run([x], and(eq(x, 1), succeed()))
 run([x], and(eq(x, 1), fail()))
 // []
 
+run([x], or(
+  eq(x, 1),
+  eq(x, 2),
+  eq(x, 3)
+)) // [{x: 1}, {x: 2}, {x: 3}]
+
+run([x], or(
+  eq(x, 1),
+  and(eq(x, 2), fail()),
+  eq(x, 3)
+)) // [{x: 1}, {x: 3}]
+
 run(4, [x], anyo(or(eq(x, 1), eq(x, 2), eq(x, 3))))
 // [{x: 1}, {x: 2}, {x: 3}, {x: 1}]
 ```
