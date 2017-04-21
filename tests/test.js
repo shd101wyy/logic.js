@@ -25,6 +25,7 @@ const y = lvar('y')
 // console.log(run(1, [x], mul(x, 2, 7)))
 // console.log(run(1, [x], sub(15, x, 12)))
 // console.log(run([x], and(membero(x, [1, 2, 3]), membero(x, [2, 3, 4]))))
+// console.log(run([x], and(membero(x, y), eq(y, [1, 2, 3]))))
 // console.log(run(4, [x], anyo(or(eq(x, 1), eq(x, 2), eq(x, 3)))))
 // console.log(run(1, [x, y], conso(x, y, [1, 2, 3])))
 // console.log(run(1, [x], firsto(x, [])))
@@ -37,7 +38,7 @@ const y = lvar('y')
 // console.log(run(10, [x], anyo(or(eq(x, 1), eq(x, 2), eq(x, 3)))))
 // console.log(run([x], or(eq(x, 1), (x=lvar())=> eq(x, 2))))
 // console.log(run([x], and(gt(x, 1), eq(x, 2)))) // []
-// console.log(run([x], and(eq(x, 2), gt(x, 1)))) // [ { x: 2 } ] 
+// console.log(run([x], and(eq(x, 2), gt(x, 1)))) // [ { x: 2 } ]
 /*
 function parent(x, y) {
   return or(

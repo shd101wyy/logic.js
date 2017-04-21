@@ -1,5 +1,5 @@
 <!-- slide -->
-## Brief introduction of
+## Brief introduction to
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png" width="200" />
 
 <aside class="notes">
@@ -8,11 +8,11 @@ Node.js is an open-source, cross-platform JavaScript run-time environment for ex
 </aside>
 
 <!-- slide vertical:true -->  
-## ECMAScript 2016 (ES6)  
+## ECMAScript 6 (ES6)  
 <aside class="notes">
 What is the relationship between JavaScript and ECMAScript?  
 ECMAScript is a Standard for scripting language. Languages such as JavaScript, JScript, and ActionScript are based on the ECMAScript standard.  
-ECMAScript 2016 (ES6) is the newest version of ECMAScript.  
+ECMAScript 6 (ES6) is the newest version of ECMAScript.  
 And my implementation of miniKanren uses a lot of features of ES6.    
 </aside>
 
@@ -177,21 +177,21 @@ add(1, 2, 3, 4, 5)
 <!-- slide vertical:true -->
 # Generator
 ```javascript
-function* genFour() {
+function* genThree() {
   yield 1
   yield 2
   console.log('Hello World')
   yield 3
 }
-let four = genFour()
-four.next()  
+let three = genThree()
+three.next()  
 // Object { value: 1, done: false }
-four.next()  
+three.next()  
 // Object { value: 2, done: false }
-four.next()  
+three.next()  
 // Hello World
 // Object { value: 3, done: false }
-four.next()
+three.next()
 // Object { value: undefined, done: true }
 ```
 

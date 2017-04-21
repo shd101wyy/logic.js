@@ -1,14 +1,19 @@
----
-presentation:
-  enableSpeakerNotes: true
----
-
 <!-- slide -->
 # miniKanren in JavaScript
 The **logic.js** library
 <aside class="notes">
 My implementation is a slightly modifed version of miniKanren
 </aside>
+
+```{javascript require:['../lib/logic.js'], id:"j1r4lpyx", hide:true}
+const { lvar, run, and, or, eq, facts,
+                conso, firsto, resto, emptyo, membero, appendo,
+                numbero, stringo, arrayo,
+                add, sub, mul, div,
+                lt, le, gt, ge,
+                succeed, fail,
+                anyo } = logic
+```
 
 <!-- slide vertical:true -->
 ## Logic variables  
@@ -121,7 +126,7 @@ unify(x, "banana", {x: "mango"})  // null
 // failed to unify two terms
 ```
 <aside class="notes">
-What should we do if the logical variable already has a value?
+What should we do if the logic variable already has a value?
 There are two possibilities.  
 </aside>
 
@@ -178,7 +183,7 @@ eq will unify two terms, for example:
 ```javascript
 function eq(x, y) {
   return function*(sMap) {
-    return unify(x, y, sMap) // unify x and y
+    yield unify(x, y, sMap) // unify x and y
   }
 }
 ```
@@ -311,20 +316,9 @@ function grandparent(x, z) {
 }
 ```
 
-
-<aside class="notes">
-We can use the eq, or, and to define a goal.
-</aside>
-
 <!-- slide vertical:true -->  
-## Solve a Goal
+## Solve a Goal (Expression)
 ```javascript
-run(1, [x], succeed())  
-// [{x: x}]
-
-run(1, [x], fail())  
-// []
-
 run(1, [x], eq(x, 1))
 // [{x: 1}]
 
@@ -420,6 +414,37 @@ graph TD
   eqxy --> or
   or --> eqy
 ```
+
+<!-- slide vertical:true -->
+# Recall eq function
+```javascript
+function eq(x, y) {
+  return function*(sMap) {
+    yield unify(x, y, sMap) // unify x and y
+  }
+}
+```
+```mermaid
+graph TD
+  style eqxy fill:#f14343;
+  eqxy("{}<br>eq(x, y)")
+```
+
+<!-- slide vertical:true -->
+# Recall eq function
+```javascript
+function eq(x, y) {
+  return function*(sMap) {
+    yield unify(x, y, sMap) // unify x and y
+  }
+}
+```
+```mermaid
+graph TD
+  style eqxy fill:#ccc8f5;
+  eqxy("{}<br>eq(x, y)<br>{x: y}")
+```
+
 
 <!-- slide vertical:true -->
 ```mermaid
@@ -902,3 +927,18 @@ function anyo(goal) {
 }
 ```
 
+<!-- slide vertical:true -->
+# Github  
+You can find the sourcecode of `logic.js` at   
+https://github.com/shd101wyy/logic.js/blob/master/lib/logic.js
+
+## References
+* [microLogic](http://mullr.github.io/micrologic/literate.html)
+* [core.logic](https://github.com/clojure/core.logic)  
+* Daniel P. Friedman, William E. Byrd and Oleg Kiselyov. The Reasoned Schemer. The MIT Press, Cambridge, MA, 2005.
+* Claire E. Alvis, Jeremiah J. Willcock, Kyle M. Carter, William E. Byrd, and Daniel P. Friedman.
+cKanren: miniKanren with Constraints.
+In Proceedings of the 2011 Workshop on Scheme and Functional Programming (Scheme '11), Portland, OR, 2011.
+
+<!-- slide vertical:true -->
+# run(1, [x], eq(x, 'Thank You!'))
