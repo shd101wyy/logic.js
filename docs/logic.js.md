@@ -157,9 +157,10 @@ unify(x, m, {x: 3, m: n}) // => {x: 3, m: n, n: 3}
 | Scheme  | logic.js (JavaScript)  |
 |---|---|
 | == | eq  |
-| fresh | we don't have that |
 | conde | or |
-| they don't have that | and |
+| no specific name | and |
+| run | run |
+| fresh | we don't have that |
 
 <aside class="notes">
 miniKanren is designed to be small and portable.  
