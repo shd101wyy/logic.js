@@ -1,8 +1,12 @@
 {
-  "name": "logicjs",
+  "name": "logic_js",
   "version": "0.0.1",
   "description": "JavaScript implementation of modified version of miniKanren",
   "main": "lib/logic.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

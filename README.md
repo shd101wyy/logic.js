@@ -4,7 +4,7 @@ JavaScript implementation of modified version of miniKanren
 ## Install
 node.js
 ```sh
-npm install logicjs
+npm install logic_js --save
 ```
 
 browser
@@ -16,7 +16,7 @@ where `logic.js` is located at `./lib` folder.
 ## Usage
 ### Core
 ```javascript
-const {lvar, run, and, or, eq} = require('logicjs') // or `logic` in browser
+const {lvar, run, and, or, eq} = require('logic_js') // or `logic` in browser
 
 const x = lvar('x') // define logic variable with id 'x'
 
@@ -29,7 +29,7 @@ run(1, x, (y=lvar()=> and(
 
 ### Facts
 ```javascript
-const {facts} = require('logicjs')
+const {facts} = require('logic_js')
 // FACT
 const parent = facts(['Steve', 'Bob'],      // Steve is Bob's parent
                    ['Steve', 'Henry'],    // Steve is Henry's parent
@@ -50,7 +50,7 @@ run(1, x, grandparent(x, 'Alice'))  // who is Alice's grandparent => ['Steve']
 ### Array manipulation
 ```javascript
 const {conso, firsto, resto,
-      emptyo, membero, appendo} = require('logicjs')
+      emptyo, membero, appendo} = require('logic_js')
 
 const x = lvar('x'),
       y = lvar('y')
@@ -72,7 +72,7 @@ run([x, y], appendo(x, y, [1, 2]))
 ### Arithmetic & Comparison
 ```javascript
 const { add, sub, mul, div,
-        lt, le, gt, ge } = require('logicjs')
+        lt, le, gt, ge } = require('logic_js')
 
 run([x], add(2, x, 5))
 // [{x: 3}]
@@ -80,7 +80,7 @@ run([x], add(2, x, 5))
 
 ### Extra
 ```javascript
-const {succeed, fail, anyo} = require('logicjs')
+const {succeed, fail, anyo} = require('logic_js')
 
 run([x], and(eq(x, 1), succeed()))
 // [{x: 1}]
