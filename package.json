@@ -1,5 +1,5 @@
 {
-  "name": "logic.js",
+  "name": "logicjs",
   "version": "0.0.1",
   "description": "JavaScript implementation of modified version of miniKanren",
   "main": "lib/logic.js",
