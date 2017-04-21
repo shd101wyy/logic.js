@@ -1,5 +1,7 @@
 # logic.js
-JavaScript implementation of modified version of miniKanren
+JavaScript implementation of modified version of miniKanren.  
+
+Check this [presentation](https://rawgit.com/shd101wyy/logic.js/master/docs/miniKanren.html).  
 
 ## Install
 node.js
@@ -13,7 +15,7 @@ browser
 ```
 where `logic.js` is located at `./lib` folder.  
 
-## Usage
+## Usages
 ### Core
 ```javascript
 const {lvar, run, and, or, eq} = require('logic_js') // or `logic` in browser
