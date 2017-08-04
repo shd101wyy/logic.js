@@ -23,10 +23,10 @@ const {lvar, run, and, or, eq} = require('logic_js') // or `logic` in browser
 const x = lvar('x') // define logic variable with id 'x'
 
 run(1, [x], eq(x, 1)) // query 'x' => [{x: 1}]
-run(1, [x], (y=lvar()=> and(
+run(1, [x], (y=lvar())=> and(
   eq(y, 1),
   eq(x, y)
-))) // => [{x: 1}]
+)) // => [{x: 1}]
 
 run([x], or(eq(x, 1), eq(x, 2)))    // [{x: 1}, {x: 2}]
 run([x], or(1, eq(x, 1), eq(x, 2))) // [{x: 1}]
