@@ -1,6 +1,6 @@
 {
   "name": "logic_js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "JavaScript implementation of modified version of miniKanren",
   "main": "lib/logic.js",
   "directories": {
